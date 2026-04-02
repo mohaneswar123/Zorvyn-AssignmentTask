@@ -2,13 +2,9 @@ package com.finance.sdp.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.finance.sdp.dto.LoginResponse;
-import com.finance.sdp.model.Transaction;
 import com.finance.sdp.model.User;
 
-@Service
 public interface UserService {
 	
 	User registerUser(User user);
