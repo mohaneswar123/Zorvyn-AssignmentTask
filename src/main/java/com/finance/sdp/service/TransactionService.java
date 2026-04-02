@@ -16,4 +16,10 @@ public interface TransactionService {
 	List<Transaction> getAllTransactions(String userId);
 	List<Transaction> getTransactionsByType(String userId, String type);
 	List<Transaction> getTransactionsByCategory(String userId, String category);
+	List<Transaction> getRecentTransactions(String userId, int limit);
+	List<Transaction> getTransactionsByDateRange(String userId, String startDate, String endDate);
+	Double getAverageIncome(String userId);
+	Double getAverageExpense(String userId);
+	String updateTransaction(String transactionId, Transaction updatedTransaction);
+	String deleteTransaction(String transactionId);
 }

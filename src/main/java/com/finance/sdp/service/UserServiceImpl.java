@@ -190,4 +190,22 @@ public class UserServiceImpl implements UserService {
 
 		throw new IllegalArgumentException("Invalid role provided");
 	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String activeUser(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteUser(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

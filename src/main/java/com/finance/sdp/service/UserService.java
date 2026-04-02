@@ -11,11 +11,13 @@ public interface UserService {
 	LoginResponse loginUser(String email, String password);
 	String updateUser(String userId, User updatedUser);
 	User getUserById(String userId);
-	
 	String inActiveUser(String userId);
 	String assignRole(String userId, String role);
 	List<User> getAllUsers();
 	List<User> getUsersByRole(String role);
 	List<User> getUsersByAcitveStatus(String status);
+	User getUserByEmail(String email);
+	String activeUser(String userId);
+	String deleteUser(String userId);
 	
 }
