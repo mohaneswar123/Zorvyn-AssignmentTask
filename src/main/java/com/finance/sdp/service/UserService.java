@@ -16,6 +16,7 @@ public interface UserService {
 	List<User> getAllUsers();
 	List<User> getUsersByRole(String role);
 	List<User> getUsersByAcitveStatus(String status);
+	User createUserByAdmin(User user);
 	User getUserByEmail(String email);
 	String activeUser(String userId);
 	String deleteUser(String userId);

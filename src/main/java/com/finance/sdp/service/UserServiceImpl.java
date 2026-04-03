@@ -155,6 +155,27 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findByIsActive(active);
 	}
 
+	@Override
+	public User createUserByAdmin(User user) {
+		validateRegisterInput(user);
+
+		String normalizedEmail = normalizeEmail(user.getEmail());
+		if (userRepository.existsByEmailIgnoreCase(normalizedEmail)) {
+			throw new IllegalArgumentException("Email already registered");
+		}
+
+		User newUser = new User();
+		newUser.setUsername(user.getUsername().trim());
+		newUser.setEmail(normalizedEmail);
+		newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+		newUser.setRole(user.getRole() == null ? Role.Viewer : user.getRole());
+		newUser.setPhnoneNumber(user.getPhnoneNumber());
+		newUser.setIsActive(user.getIsActive() == null ? true : user.getIsActive());
+		newUser.setCreatedAt(LocalDateTime.now());
+
+		return userRepository.save(newUser);
+	}
+
 	private void validateRegisterInput(User user) {
 		if (user == null) {
 			throw new IllegalArgumentException("User payload is required");
@@ -193,19 +214,22 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		return userRepository.findByEmailIgnoreCase(normalizeEmail(email))
+				.orElseThrow(() -> new IllegalArgumentException("User not found"));
 	}
 
 	@Override
 	public String activeUser(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = getUserById(userId);
+		user.setIsActive(true);
+		userRepository.save(user);
+		return "User activated successfully";
 	}
 
 	@Override
 	public String deleteUser(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = getUserById(userId);
+		userRepository.delete(user);
+		return "User deleted successfully";
 	}
 }

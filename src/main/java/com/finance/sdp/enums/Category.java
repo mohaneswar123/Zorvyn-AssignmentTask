@@ -10,5 +10,9 @@ public enum Category {
 	Health,
 	Education,
 	Utilities,
-	Miscellaneous
+	Miscellaneous,
+	HouseRents,
+	Parttime,
+	Business,
+	Other
 }

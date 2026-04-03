@@ -1,25 +1,29 @@
 package com.finance.sdp.service;
 
 import java.util.List;
+import java.util.Map;
 
+import com.finance.sdp.dto.MonthlyTrendPoint;
 import com.finance.sdp.model.Transaction;
 
 public interface TransactionService {
 	String addIncome(Transaction transaction);
 	String addExpense(Transaction transaction);
-	List<Transaction> getTransactionsByDate(String userId, String date);
-	List<Transaction> getAllIncomes(String userId);
-	List<Transaction> getAllExpenses(String userId);
-	Double getTotalIncome(String userId);
-	Double getTotalExpense(String userId);
-	Double getNetBalance(String userId);
-	List<Transaction> getAllTransactions(String userId);
-	List<Transaction> getTransactionsByType(String userId, String type);
-	List<Transaction> getTransactionsByCategory(String userId, String category);
-	List<Transaction> getRecentTransactions(String userId, int limit);
-	List<Transaction> getTransactionsByDateRange(String userId, String startDate, String endDate);
-	Double getAverageIncome(String userId);
-	Double getAverageExpense(String userId);
+	List<Transaction> getTransactionsByDate(String date);
+	List<Transaction> getAllIncomes();
+	List<Transaction> getAllExpenses();
+	Double getTotalIncome();
+	Double getTotalExpense();
+	Double getNetBalance();
+	List<Transaction> getAllTransactions();
+	List<Transaction> getTransactionsByType(String type);
+	List<Transaction> getTransactionsByCategory(String category);
+	List<Transaction> getRecentTransactions(int limit);
+	List<Transaction> getTransactionsByDateRange(String startDate, String endDate);
+	Double getAverageIncome();
+	Double getAverageExpense();
+	Map<String, Double> getCategoryTotals();
+	List<MonthlyTrendPoint> getMonthlyTrends(int months);
 	String updateTransaction(String transactionId, Transaction updatedTransaction);
 	String deleteTransaction(String transactionId);
 }

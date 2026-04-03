@@ -17,18 +17,16 @@ public class Transaction {
 	private Category category;
 	private LocalDate timestamp;
 	private String description;
-	private String createdBy; // User ID 
 	
 	public Transaction() {
 	}
 	
-	public Transaction(double amount, String type, Category category, LocalDate timestamp, String description, String createdBy) {
+	public Transaction(double amount, String type, Category category, LocalDate timestamp, String description) {
 		this.amount = amount;
 		this.type = type;
 		this.category = category;
 		this.timestamp = timestamp;
 		this.description = description;
-		this.createdBy = createdBy;
 	}
 
 	public String getId() {
@@ -77,14 +75,6 @@ public class Transaction {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
 	}
 	
 }
