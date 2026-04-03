@@ -9,8 +9,8 @@ This is a basic guide for using the Finance Backend APIs.
 - Full base: http://localhost:8089/api
 
 ## 2) Authentication
-
-Use JWT token for protected APIs.
+For Role Based Access
+Used JWT token for protected APIs.
 
 Header format:
 
